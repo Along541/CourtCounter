@@ -13,21 +13,31 @@ public class MainActivity extends AppCompatActivity {
     // Tracks the score for Team B
     int scoreTeamB = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
     }
 
-
-    public void addThreeForTeamA(View v) {
-        scoreTeamA = scoreTeamA + 3;
+    public void displayForTeamA(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+        scoreView.setText(String.valueOf(score));
+    }
+    int TeamAflags = 0;
+    public void displayForteamAflags(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.Team_A_flags);
+        scoreView.setText(String.valueOf(score));}
+    public void addFlagForTeamA(View v) {
+        TeamAflags = TeamAflags + 1;
+        displayForteamAflags(TeamAflags);
+    }
+    public void addSixForTeamA(View v) {
+        scoreTeamA = scoreTeamA + 6;
         displayForTeamA(scoreTeamA);
     }
 
-    public void addTwoForTeamA(View v) {
-        scoreTeamA = scoreTeamA + 2;
+    public void addThreeForTeamA(View v) {
+        scoreTeamA = scoreTeamA + 3;
         displayForTeamA(scoreTeamA);
 
     }
@@ -35,25 +45,30 @@ public class MainActivity extends AppCompatActivity {
     public void addOneForTeamA(View v) {
         scoreTeamA = scoreTeamA + 1;
         displayForTeamA(scoreTeamA);
-
+    }
+    public void addTwoForTeamA(View v) {
+        scoreTeamA = scoreTeamA + 2;
+        displayForTeamA(scoreTeamA);
     }
 
     /**
      * Displays the given score for Team A.
      */
-    public void displayForTeamA(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_a_score);
+    public void displayForTeamB(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
         scoreView.setText(String.valueOf(score));
 
     }
-
+    int TeamBflags = 0;
+    public void displayForteamBflags(int score) {
+        TextView scoreView = (TextView) findViewById(R.id.Team_B_flags);
+        scoreView.setText(String.valueOf(score));}
+    public void addFlagForTeamB(View v) {
+        TeamBflags = TeamBflags + 1;
+        displayForteamBflags(TeamBflags);
+    }
     public void addOneForTeamB(View v) {
         scoreTeamB = scoreTeamB + 1;
-        displayForTeamB(scoreTeamB);
-    }
-
-    public void addTwoForTeamB(View v) {
-        scoreTeamB = scoreTeamB + 2;
         displayForTeamB(scoreTeamB);
     }
 
@@ -62,14 +77,20 @@ public class MainActivity extends AppCompatActivity {
         displayForTeamB(scoreTeamB);
     }
 
+    public void addSixForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 6;
+        displayForTeamB(scoreTeamB);
+    }
+
+    public void addTwoForTeamB(View v) {
+        scoreTeamB = scoreTeamB + 2;
+        displayForTeamB(scoreTeamB);
+    }
+
     /**
      * Displays the given score for Team B.
      */
-    public void displayForTeamB(int score) {
-        TextView scoreView = (TextView) findViewById(R.id.team_b_score);
-        scoreView.setText(String.valueOf(score));
 
-    }
     /**
      * Resets the score for both teams back to 0.
      */
@@ -78,5 +99,9 @@ public class MainActivity extends AppCompatActivity {
         scoreTeamB = 0;
         displayForTeamA(scoreTeamA);
         displayForTeamB(scoreTeamB);
+        TeamBflags = 0;
+        TeamAflags = 0;
+        displayForteamAflags(TeamAflags);
+        displayForteamBflags(TeamAflags);
     }
 }
